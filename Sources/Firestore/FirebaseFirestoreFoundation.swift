@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FirebaseFirestore
-import Shared
 
 public protocol FirebaseFirestoreFoundation {
     

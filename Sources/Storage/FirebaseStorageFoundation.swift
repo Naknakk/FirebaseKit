@@ -8,7 +8,6 @@
 import SwiftUI
 import PhotosUI
 import FirebaseStorage
-import Shared
 
 public protocol FirebaseStorageFoundation {
     var storage: Storage { get set }
