@@ -7,56 +7,25 @@ let package = Package(
     name: "FirebaseKit",
     platforms: [.iOS(.v15)],
     products: [
-        .library(name: "FirebaseFirestoreKit", targets: ["FirebaseFirestoreKit"]),
-        .library(name: "FirebaseAuthKit", targets: ["FirebaseAuthKit"]),
-        .library(name: "FirebaseStorageKit", targets: ["FirebaseStorageKit"])
+        .library(name: "FirebaseKit", targets: ["FirebaseKit"])
     ],
     dependencies: [
-        
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.0.0")
     ],
     targets: [
         .target(
-            name: "Shared",
-            path: "Sources/Shared"
-        ),
-        .target(
-            name: "FirebaseFirestoreKit",
+            name: "FirebaseKit",
             dependencies: [
                 .product(name: "FirebaseFirestore", package: "firebase-ios-sdk"),
-                "Shared"
+                .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk")
             ],
-            path: "Sources/Firestore"
-        ),
-        .target(
-            name: "FirebaseAuthKit",
-            dependencies: [.product(name: "FirebaseAuth", package: "firebase-ios-sdk")],
-            path: "Sources/Auth"
-        ),
-        .target(
-            name: "FirebaseStorageKit",
-            dependencies: [
-                
-                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
-                "Shared"
-            ],
-            path: "Sources/Storage"
-        ),
-        
-        .testTarget(
-            name: "FirebaseAuthKitTests",
-            dependencies: ["FirebaseAuthKit"],
-            path: "Tests/AuthTests"
+            path: "Sources"
         ),
         .testTarget(
-            name: "FirebaseFirestoreKitTests",
-            dependencies: ["FirebaseFirestoreKit"],
-            path: "Tests/FirestoreTests"
-        ),
-        .testTarget(
-            name: "FirebaseStorageKitTests",
-            dependencies: ["FirebaseStorageKit"],
-            path: "Tests/StorageTests"
+            name: "FirebaseKitTests",
+            dependencies: ["FirebaseKit"],
+            path: "Tests"
         )
     ]
     
