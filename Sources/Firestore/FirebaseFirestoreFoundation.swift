@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseFirestore
 import Shared
 
-protocol FirebaseFirestoreFoundation {
+public protocol FirebaseFirestoreFoundation {
     
     var db: Firestore { get set }
     
@@ -70,7 +70,7 @@ protocol FirebaseFirestoreFoundation {
     ) async throws
 }
 
-extension FirebaseFirestoreFoundation {
+public extension FirebaseFirestoreFoundation {
     
     // MARK: Encoding & Decoding
     func decode<T: Decodable>(
@@ -177,24 +177,7 @@ extension FirebaseFirestoreFoundation {
     
     // MARK: - Post(생성)
     
-    /**
-     단일 document를 조회합니다.
-     
-     이 함수는 지정된 컬렉션에서 문서를 가져온 후, Firestore 데이터를 지정된 Decodable 타입으로 디코딩하여 반환합니다.
-     
-     - Parameters:
-       - path: 문서가 속한 컬렉션의 경로입니다.
-       - documentID: 조회할 문서의 고유 식별자입니다. 이 값이 nil이면 FirebaseError.invalidPath 에러를 발생시킵니다.
-       - type: 반환할 데이터 타입입니다. (Decodable 프로토콜 준수)
-     - Throws:
-       - FirebaseError.invalidPath: documentID가 nil인 경우 발생.
-       - FirebaseError.firebaseMethodFailed: Firestore 작업 중 에러가 발생한 경우.
-       - FirebaseError.documentNotFound: 조회한 문서에 데이터가 없는 경우.
-       - FirebaseError.decodingFailed: 데이터를 지정 타입으로 디코딩하지 못한 경우.
-     - Returns: 지정된 타입으로 디코딩된 단일 문서 데이터를 반환합니다.
-     
-     ## 사용 예제
-     **/
+    /// 단일 document를 생성합니다
     func postDocument<T: FirebaseEncodable>(
         path: String,
         id: String? = nil,

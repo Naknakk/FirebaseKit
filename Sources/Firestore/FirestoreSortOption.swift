@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SortOption {
+public struct SortOption {
     let field: String
     let descending: Bool
 }

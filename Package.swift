@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "FirebaseStorageKit", targets: ["FirebaseStorageKit"])
     ],
     dependencies: [
+        
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.0.0")
     ],
     targets: [
@@ -35,6 +36,7 @@ let package = Package(
         .target(
             name: "FirebaseStorageKit",
             dependencies: [
+                
                 .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
                 "Shared"
             ],

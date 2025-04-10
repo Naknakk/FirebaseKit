@@ -10,13 +10,13 @@ import AuthenticationServices
 import FirebaseAuth
 import CryptoKit
 
-protocol FirebaseAuthFoundation: AnyObject {
+public protocol FirebaseAuthFoundation: AnyObject {
     var currentNonce: String? { get set }
     func updateHashNonce() -> String
     func loginWithFirebase(_ authorization: ASAuthorization)
 }
 
-extension FirebaseAuthFoundation {
+public extension FirebaseAuthFoundation {
     
     /// 애플 인증을 위해 request.nonce에 넣어줘야하는 랜덤 암호문 반환
     func updateHashNonce() -> String {

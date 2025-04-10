@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct QueryOption {
+public struct QueryOption {
     let field: String
     let operation: QueryOperation
     let value: Any
 }
 
-enum QueryOperation {
+public enum QueryOperation {
     case isEqualTo
     case isLessThan
     case isLessThanOrEqualTo
